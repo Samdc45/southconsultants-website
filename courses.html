@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Courses — South Consultants</title>
+  <meta name="description" content="Civil construction courses built for every rank — from groundhand to manager. NZ, AU, Global." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .courses-hero { background: var(--navy); padding: 120px 0 60px; text-align: center; }
+    .courses-hero h1 { color: #fff; font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 1rem; }
+    .courses-hero p { color: rgba(255,255,255,0.7); font-size: 1.1rem; max-width: 600px; margin: 0 auto 2rem; }
+    .course-section { padding: 80px 0; }
+    .course-section.alt { background: #f8f9fb; }
+    .course-header { text-align: center; margin-bottom: 3rem; }
+    .course-header .badge { display: inline-block; background: var(--orange); color: #fff; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 1rem; }
+    .course-header h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); color: var(--navy); margin-bottom: 0.5rem; }
+    .course-header p { color: #666; max-width: 600px; margin: 0 auto; }
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 960px; margin: 0 auto; }
+    .pricing-single { max-width: 380px; }
+    .pricing-card { background: #fff; border: 2px solid #e8eaf0; border-radius: 16px; padding: 2rem; text-align: center; transition: all 0.2s; position: relative; display: flex; flex-direction: column; }
+    .pricing-card:hover { border-color: var(--orange); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
+    .pricing-card.featured { border-color: var(--navy); }
+    .pricing-card.featured::before { content: "MOST POPULAR"; position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--navy); color: #fff; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; padding: 3px 14px; border-radius: 20px; }
+    .pricing-tier { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--orange); margin-bottom: 0.5rem; }
+    .pricing-price { font-size: 2.5rem; font-weight: 900; color: var(--navy); line-height: 1; }
+    .pricing-price span { font-size: 1rem; font-weight: 400; color: #999; }
+    .pricing-desc { font-size: 0.9rem; color: #666; margin: 1rem 0; }
+    .pricing-features { list-style: none; margin: 1rem 0; text-align: left; flex: 1; }
+    .pricing-features li { font-size: 0.9rem; color: #444; padding: 4px 0; }
+    .pricing-features li::before { content: "✓ "; color: var(--orange); font-weight: 700; }
+    .pricing-card .btn { width: 100%; display: block; margin-top: auto; padding-top: 1.5rem; }
+    .personality-section { background: var(--navy); padding: 80px 0; text-align: center; }
+    .personality-section h2 { color: #fff; margin-bottom: 0.5rem; }
+    .personality-section p { color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto 3rem; }
+    .personality-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; max-width: 900px; margin: 0 auto; }
+    .personality-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 2rem 1.5rem; }
+    .personality-emoji { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    .personality-card h4 { color: #fff; margin-bottom: 0.5rem; }
+    .personality-card p { color: rgba(255,255,255,0.6); font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+
+  <header id="header">
+    <div class="header-inner">
+      <a href="/" class="logo">
+        <img src="https://static.wixstatic.com/media/7b181a_155e82fd215044179419fe3c7d2cb72e~mv2.png" alt="South Consultants Logo" />
+        <div class="logo-text">
+          <span class="logo-name">South Consultants</span>
+          <span class="logo-tagline">Smarter Operations. Safer Sites.</span>
+        </div>
+      </a>
+      <nav id="nav">
+        <a href="/">Home</a>
+        <a href="/courses.html" class="active">Courses</a>
+        <a href="/#products">Products</a>
+        <a href="/#contact" class="nav-cta">Get in Touch</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="courses-hero">
+    <div class="container">
+      <p class="section-eyebrow light">Industry Training</p>
+      <h1>Built for Civil Construction.<br/>Every Rank. Every Role.</h1>
+      <p>30 years of on-the-ground experience, built into scalable digital courses. From groundhand to owner — the training that actually changes what happens on site.</p>
+    </div>
+  </section>
+
+  <!-- COMMUNICATING ON SITE -->
+  <section class="course-section">
+    <div class="container">
+      <div class="course-header">
+        <div class="badge">New Course</div>
+        <h2>📢 Communicating on Site</h2>
+        <p>Communication is not a soft skill — it is a safety-critical system. The foundation course for every person on site, regardless of rank.</p>
+      </div>
+      <div class="pricing-grid">
+
+        <div class="pricing-card">
+          <div class="pricing-tier">Intro</div>
+          <div class="pricing-price">$47 <span>NZD</span></div>
+          <div class="pricing-desc">Level 1 Foundations — for every person on site from Day 1.</div>
+          <ul class="pricing-features">
+            <li>Why communication fails on site</li>
+            <li>The Big 4 site signals</li>
+            <li>Plain language techniques</li>
+            <li>Radio & phone protocol</li>
+            <li>Pre-start communication</li>
+          </ul>
+          <a href="https://buy.stripe.com/test_00w9AS44rdwR3O0gPEfw400" class="btn btn-outline" target="_blank">Enrol Now →</a>
+        </div>
+
+        <div class="pricing-card featured">
+          <div class="pricing-tier">Certificate</div>
+          <div class="pricing-price">$197 <span>NZD</span></div>
+          <div class="pricing-desc">Levels 1 + 2 including the 4 Personality Types assessment.</div>
+          <ul class="pricing-features">
+            <li>Everything in Intro</li>
+            <li>The 4 Personality Types on site</li>
+            <li>Reading body language & mood</li>
+            <li>Communication under pressure</li>
+            <li>Cultural communication guide</li>
+            <li>Certificate of completion</li>
+          </ul>
+          <a href="https://buy.stripe.com/test_3cIdR8asP8cx0BO2YOfw401" class="btn btn-primary" target="_blank">Enrol Now →</a>
+        </div>
+
+        <div class="pricing-card">
+          <div class="pricing-tier">Corporate</div>
+          <div class="pricing-price">$697 <span>NZD</span></div>
+          <div class="pricing-desc">All 4 levels + team licences + Toolbox Chat integration.</div>
+          <ul class="pricing-features">
+            <li>Everything in Certificate</li>
+            <li>Level 3: Advanced (Supervisors)</li>
+            <li>Level 4: Communication Systems</li>
+            <li>Team licences included</li>
+            <li>Toolbox Chat integration</li>
+            <li>Manager reporting dashboard</li>
+          </ul>
+          <a href="https://buy.stripe.com/test_aFa28qfN92SddoA56Wfw402" class="btn btn-outline" target="_blank">Enrol Now →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PERSONALITY TYPES -->
+  <section class="personality-section">
+    <div class="container">
+      <h2>Know Your Crew. Communicate Better.</h2>
+      <p>Every crew has 4 types of communicators. Once you know how to spot them, you'll know how to work with all of them.</p>
+      <div class="personality-grid">
+        <div class="personality-card">
+          <div class="personality-emoji">🔴</div>
+          <h4>The Driver</h4>
+          <p>Fast, decisive, results-focused. Direct and brief wins every time.</p>
+        </div>
+        <div class="personality-card">
+          <div class="personality-emoji">🟡</div>
+          <h4>The Talker</h4>
+          <p>Team morale engine. Needs warmth + structure to land safety messages.</p>
+        </div>
+        <div class="personality-card">
+          <div class="personality-emoji">🟢</div>
+          <h4>The Supporter</h4>
+          <p>Reliable backbone. Needs a safe space to speak up — or they won't.</p>
+        </div>
+        <div class="personality-card">
+          <div class="personality-emoji">🔵</div>
+          <h4>The Analyst</h4>
+          <p>Detail-driven. Needs data and time to process before committing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NZCI FLEXI -->
+  <section class="course-section alt">
+    <div class="container">
+      <div class="course-header">
+        <div class="badge">NZCI Certified</div>
+        <h2>🎓 NZCI Flexi</h2>
+        <p>New Zealand's benchmark civil construction qualification. Study at your own pace, certified to industry standards.</p>
+      </div>
+      <div class="pricing-grid">
+
+        <div class="pricing-card">
+          <div class="pricing-tier">Intro</div>
+          <div class="pricing-price">$97 <span>NZD</span></div>
+          <div class="pricing-desc">Foundations of NZ civil construction compliance.</div>
+          <ul class="pricing-features">
+            <li>Core compliance framework</li>
+            <li>NZ-specific regulations</li>
+            <li>Site safety fundamentals</li>
+            <li>Self-paced online delivery</li>
+          </ul>
+          <a href="https://buy.stripe.com/test_28E5kC9oL1O92JW42Sfw403" class="btn btn-outline" target="_blank">Enrol Now →</a>
+        </div>
+
+        <div class="pricing-card featured">
+          <div class="pricing-tier">Certificate</div>
+          <div class="pricing-price">$497 <span>NZD</span></div>
+          <div class="pricing-desc">Full NZCI Flexi Certificate — industry recognised.</div>
+          <ul class="pricing-features">
+            <li>Everything in Intro</li>
+            <li>Full compliance modules</li>
+            <li>Practical assessments</li>
+            <li>NZCI Certificate of completion</li>
+            <li>LMS access included</li>
+          </ul>
+          <a href="https://buy.stripe.com/test_cNi5kCcAXgJ32JW0QGfw404" class="btn btn-primary" target="_blank">Enrol Now →</a>
+        </div>
+
+        <div class="pricing-card">
+          <div class="pricing-tier">Corporate</div>
+          <div class="pricing-price">$997 <span>NZD</span></div>
+          <div class="pricing-desc">Team licences for your whole crew.</div>
+          <ul class="pricing-features">
+            <li>Everything in Certificate</li>
+            <li>Unlimited team licences</li>
+            <li>Manager reporting</li>
+            <li>Bulk enrolment support</li>
+          </ul>
+          <a href="https://buy.stripe.com/test_8x29AS0SffEZ2JWczofw405" class="btn btn-outline" target="_blank">Enrol Now →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPACTION 101 -->
+  <section class="course-section">
+    <div class="container">
+      <div class="course-header">
+        <div class="badge">Technical Skills</div>
+        <h2>🚜 Compaction 101</h2>
+        <p>Master the fundamentals of compaction. Techniques, equipment, soil science, and quality control — built for operators and supervisors worldwide.</p>
+      </div>
+      <div class="pricing-grid pricing-single" style="margin:0 auto">
+        <div class="pricing-card featured">
+          <div class="pricing-tier">Full Course</div>
+          <div class="pricing-price">$499 <span>NZD</span></div>
+          <div class="pricing-desc">Complete compaction training for civil construction professionals.</div>
+          <ul class="pricing-features">
+            <li>Soil types and compaction theory</li>
+            <li>Equipment selection & operation</li>
+            <li>Quality control testing</li>
+            <li>Common failures & fixes</li>
+            <li>NZ & global standards</li>
+            <li>Certificate of completion</li>
+          </ul>
+          <a href="https://buy.stripe.com/test_4gM6oGeJ52SdfwIdDsfw406" class="btn btn-primary" target="_blank">Enrol Now →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-band">
+    <div class="container center">
+      <h2>Not sure which course is right for you?</h2>
+      <p>Talk to us. We'll point you in the right direction.</p>
+      <a href="mailto:sam@southconsultants.biz" class="btn btn-primary">Get in Touch</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <p class="footer-logo">South Consultants</p>
+        <p class="footer-tagline">Smarter Operations. Safer Sites.</p>
+      </div>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/courses.html">Courses</a>
+        <a href="mailto:sam@southconsultants.biz">Contact</a>
+      </div>
+      <p class="footer-copy">© 2026 South Consultants Ltd. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
