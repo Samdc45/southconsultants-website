@@ -1,14 +1,4 @@
 {
-  "rewrites": [
-    { "source": "/courses", "destination": "https://penelope-app-67fb87f3.base44.app/Courses" },
-    { "source": "/courses/:path*", "destination": "https://penelope-app-67fb87f3.base44.app/Courses/:path*" },
-    { "source": "/services", "destination": "https://penelope-app-67fb87f3.base44.app/Services" },
-    { "source": "/services/:path*", "destination": "https://penelope-app-67fb87f3.base44.app/Services/:path*" },
-    { "source": "/sitesafe", "destination": "https://penelope-app-67fb87f3.base44.app/SiteSafe" },
-    { "source": "/sitesafe/:path*", "destination": "https://penelope-app-67fb87f3.base44.app/SiteSafe/:path*" },
-    { "source": "/siteguard", "destination": "https://penelope-app-67fb87f3.base44.app/SiteGuard" },
-    { "source": "/siteguard/:path*", "destination": "https://penelope-app-67fb87f3.base44.app/SiteGuard/:path*" },
-    { "source": "/contact", "destination": "https://penelope-app-67fb87f3.base44.app/Contact" },
-    { "source": "/contact/:path*", "destination": "https://penelope-app-67fb87f3.base44.app/Contact/:path*" }
-  ]
+  "cleanUrls": true,
+  "trailingSlash": false
 }
