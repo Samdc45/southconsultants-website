@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SiteMate — People & Safety Platform | South Consultants</title>
+  <meta name="description" content="SiteMate puts safety in the hands of every person on site. Digital inductions, real-time hazard reporting, toolbox talks, and compliance dashboards — built for civil construction." />
+  <meta property="og:title" content="SiteMate — People & Safety Platform" />
+  <meta property="og:description" content="Digital inductions, real-time hazard reporting, toolbox talks, and compliance dashboards — built for civil construction." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://southconsultants.biz/sitemate" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* SiteMate page-specific styles */
+    .sm-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #2a3f6a 100%);
+      padding: 140px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .sm-hero::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(232,99,74,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .sm-hero .container { position: relative; z-index: 1; }
+    .sm-hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .sm-hero h1 { color: #fff; font-size: clamp(2rem, 4vw, 3.2rem); margin-bottom: 1.2rem; }
+    .sm-hero p { color: rgba(255,255,255,0.75); font-size: 1.1rem; line-height: 1.7; margin-bottom: 1.5rem; }
+    .sm-hero .badge { display: inline-block; background: rgba(232,99,74,0.2); color: var(--orange); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 6px 16px; border-radius: 20px; margin-bottom: 1.5rem; border: 1px solid rgba(232,99,74,0.3); }
+    .sm-hero-visual { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 32px; }
+    .sm-hero-visual img { border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+
+    .sm-stats { background: var(--light); padding: 40px 0; border-bottom: 1px solid var(--mid); }
+    .sm-stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center; }
+    .sm-stat-num { font-size: 2rem; font-weight: 900; color: var(--orange); display: block; }
+    .sm-stat-label { font-size: 0.8rem; color: var(--text-light); margin-top: 4px; display: block; }
+
+    .sm-features { padding: 90px 0; }
+    .sm-features h2 { text-align: center; margin-bottom: 0.5rem; }
+    .sm-features .section-sub { text-align: center; margin-bottom: 3rem; }
+    .sm-feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+    .sm-feature-card {
+      background: #fff;
+      border: 2px solid var(--mid);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.3s;
+    }
+    .sm-feature-card:hover {
+      border-color: var(--orange);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+    .sm-feature-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .sm-feature-card h4 { margin-bottom: 0.5rem; }
+    .sm-feature-card p { font-size: 0.9rem; }
+
+    .sm-workflow { background: var(--navy); padding: 90px 0; }
+    .sm-workflow h2 { color: #fff; text-align: center; margin-bottom: 0.5rem; }
+    .sm-workflow .section-sub { color: rgba(255,255,255,0.6); text-align: center; margin-bottom: 3rem; }
+    .sm-workflow-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; max-width: 960px; margin: 0 auto; }
+    .sm-step {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      position: relative;
+    }
+    .sm-step-num { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: var(--orange); color: #fff; font-weight: 800; font-size: 1.1rem; border-radius: 50%; margin-bottom: 1rem; }
+    .sm-step h4 { color: #fff; margin-bottom: 0.5rem; }
+    .sm-step p { color: rgba(255,255,255,0.6); font-size: 0.85rem; }
+
+    .sm-ai { padding: 90px 0; background: var(--light); }
+    .sm-ai-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .sm-ai h2 { margin-bottom: 1rem; }
+    .sm-ai-features { list-style: none; margin: 1.5rem 0; }
+    .sm-ai-features li { padding: 8px 0; font-size: 0.95rem; color: var(--text-light); }
+    .sm-ai-features li::before { content: "✦ "; color: var(--orange); font-weight: 700; }
+    .sm-ai-visual { background: #fff; border: 2px solid var(--mid); border-radius: 20px; padding: 32px; }
+    .sm-ai-visual img { border-radius: 12px; }
+
+    .sm-cta { background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%); padding: 80px 0; text-align: center; }
+    .sm-cta h2 { color: #fff; margin-bottom: 1rem; }
+    .sm-cta p { color: rgba(255,255,255,0.85); max-width: 600px; margin: 0 auto 2rem; }
+    .sm-cta .btn-white { background: #fff; color: var(--navy); font-weight: 700; padding: 14px 36px; border-radius: var(--radius); font-size: 0.95rem; display: inline-block; transition: all 0.2s; }
+    .sm-cta .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+
+    @media (max-width: 768px) {
+      .sm-hero-grid { grid-template-columns: 1fr; }
+      .sm-stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .sm-ai-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header id="header">
+    <div class="header-inner">
+      <a href="/" class="logo">
+        <img src="https://static.wixstatic.com/media/7b181a_155e82fd215044179419fe3c7d2cb72e~mv2.png" alt="South Consultants Logo" />
+        <div class="logo-text">
+          <span class="logo-name">South Consultants</span>
+          <span class="logo-tagline">Smarter Operations. Safer Sites.</span>
+        </div>
+      </a>
+      <nav id="nav">
+        <a href="/">Home</a>
+        <a href="/courses">Courses</a>
+        <a href="/#products">Products</a>
+        <a href="/#contact" class="nav-cta">Get in Touch</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="sm-hero">
+    <div class="container">
+      <div class="sm-hero-grid">
+        <div>
+          <span class="badge">People & Safety Platform</span>
+          <h1>Safety in the Hands of Every Person on Site.</h1>
+          <p>SiteMate is the digital backbone for civil construction safety. From the moment a worker arrives on site to the final handover, SiteMate captures every induction, hazard, toolbox talk, and compliance check — in real time, on any device.</p>
+          <p>No more paper. No more guesswork. No more "she'll be right."</p>
+          <div class="hero-btns">
+            <a href="/#contact" class="btn btn-primary">Book a Demo</a>
+            <a href="/courses" class="btn btn-outline" style="border-color: rgba(255,255,255,0.3); color: #fff;">View Courses</a>
+          </div>
+        </div>
+        <div class="sm-hero-visual">
+          <img src="https://media.base44.com/images/public/69c4b8fd6141e7261bf847fc/c2717b52d_generated_image.png" alt="SiteMate digital compliance platform on active civil construction site" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="sm-stats">
+    <div class="container">
+      <div class="sm-stats-grid">
+        <div>
+          <span class="sm-stat-num">5</span>
+          <span class="sm-stat-label">Core Safety Modules</span>
+        </div>
+        <div>
+          <span class="sm-stat-num">13</span>
+          <span class="sm-stat-label">Training Courses</span>
+        </div>
+        <div>
+          <span class="sm-stat-num">6</span>
+          <span class="sm-stat-label">Countries Supported</span>
+        </div>
+        <div>
+          <span class="sm-stat-num">100%</span>
+          <span class="sm-stat-label">Mobile-First</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="sm-features section">
+    <div class="container">
+      <p class="section-eyebrow center">Core Features</p>
+      <h2>Everything Your Site Needs. Nothing It Doesn't.</h2>
+      <p class="section-sub">SiteMate replaces the clipboard, the whiteboard, and the "I told you at smoko" approach to safety communication.</p>
+
+      <div class="sm-feature-grid">
+        <div class="sm-feature-card">
+          <div class="sm-feature-icon">📋</div>
+          <h4>Digital Inductions</h4>
+          <p>Site-specific inductions completed on any device before workers step foot on site. Automatic records, automatic compliance.</p>
+        </div>
+        <div class="sm-feature-card">
+          <div class="sm-feature-icon">⚠️</div>
+          <h4>Hazard Reporting</h4>
+          <p>Real-time hazard identification with severity levels, photo evidence, GPS location, and automatic escalation to supervisors.</p>
+        </div>
+        <div class="sm-feature-card">
+          <div class="sm-feature-icon">💬</div>
+          <h4>Toolbox Talks</h4>
+          <p>AI-generated toolbox talk topics based on current site hazards. Schedule, deliver, and record attendance — all in one place.</p>
+        </div>
+        <div class="sm-feature-card">
+          <div class="sm-feature-icon">👷</div>
+          <h4>Daily Check-Ins</h4>
+          <p>Fitness-for-work assessments that catch fatigue, wellness, and readiness issues before they become incidents.</p>
+        </div>
+        <div class="sm-feature-card">
+          <div class="sm-feature-icon">🌤️</div>
+          <h4>Weather Integration</h4>
+          <p>Live weather data for your site location. Automatic alerts when conditions change — wind, rain, UV, and temperature thresholds.</p>
+        </div>
+        <div class="sm-feature-card">
+          <div class="sm-feature-icon">📊</div>
+          <h4>Site Effectiveness</h4>
+          <p>Compliance dashboards, safety scores, and trend analysis. Know exactly where your site stands — and where it needs to improve.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKFLOW -->
+  <section class="sm-workflow">
+    <div class="container">
+      <p class="section-eyebrow light center">How It Works</p>
+      <h2>From Gate to Handover. Covered.</h2>
+      <p class="section-sub">SiteMate follows the natural rhythm of a construction site — from the morning pre-start to the end-of-day debrief.</p>
+
+      <div class="sm-workflow-grid">
+        <div class="sm-step">
+          <div class="sm-step-num">1</div>
+          <h4>Arrive</h4>
+          <p>Workers check in via mobile. Fitness-for-work assessment, weather briefing, and today's notifications — all before the first coffee.</p>
+        </div>
+        <div class="sm-step">
+          <div class="sm-step-num">2</div>
+          <h4>Brief</h4>
+          <p>AI-suggested toolbox talk based on today's hazards. Record attendance, capture discussion points, and log it permanently.</p>
+        </div>
+        <div class="sm-step">
+          <div class="sm-step-num">3</div>
+          <h4>Work</h4>
+          <p>Hazards reported in real time. Site checks completed. Inductions verified. Everything captured, nothing lost.</p>
+        </div>
+        <div class="sm-step">
+          <div class="sm-step-num">4</div>
+          <h4>Review</h4>
+          <p>End-of-day dashboards show compliance scores, open hazards, and tomorrow's priorities. No paperwork required.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI SECTION -->
+  <section class="sm-ai section">
+    <div class="container">
+      <div class="sm-ai-grid">
+        <div>
+          <p class="section-eyebrow">AI-Powered Safety</p>
+          <h2>Your Site's Safety Officer Never Sleeps.</h2>
+          <p>SiteMate uses AI to turn your site data into actionable safety intelligence. It doesn't replace your safety team — it makes them superhuman.</p>
+          <ul class="sm-ai-features">
+            <li>Auto-generate toolbox talks from current open hazards</li>
+            <li>Fatigue risk detection from check-in patterns</li>
+            <li>Weather-triggered safety alerts and task recommendations</li>
+            <li>Trend analysis across sites, teams, and time periods</li>
+            <li>Natural language queries: "Show me all open hazards this week"</li>
+          </ul>
+          <a href="/#contact" class="btn btn-primary">See It In Action</a>
+        </div>
+        <div class="sm-ai-visual">
+          <img src="https://media.base44.com/images/public/69c4b8fd6141e7261bf847fc/e2bb7da26_generated_image.png" alt="SiteMate AI-powered dashboard showing safety analytics" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="sm-cta">
+    <div class="container">
+      <h2>Ready to Ditch the Clipboard?</h2>
+      <p>Join the civil construction companies already using SiteMate to protect their people, simplify compliance, and build a culture where safety isn't a chore — it's a habit.</p>
+      <a href="/#contact" class="btn-white">Book a Demo →</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="https://static.wixstatic.com/media/7b181a_155e82fd215044179419fe3c7d2cb72e~mv2.png" alt="South Consultants" />
+        <div class="logo-text">
+          <span class="logo-name">South Consultants</span>
+          <span class="logo-tagline">Smarter Operations. Safer Sites.</span>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/#products">Products</a>
+        <a href="/courses">Courses</a>
+        <a href="/#contact">Contact</a>
+        <a href="mailto:sam@southconsultants.biz">Email Us</a>
+      </div>
+      <div class="footer-divider"></div>
+      <p class="footer-copy">&copy; 2026 South Consultants Ltd. All rights reserved. Auckland, New Zealand.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
