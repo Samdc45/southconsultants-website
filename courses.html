@@ -9,36 +9,85 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <style>
-    .courses-hero { background: var(--navy); padding: 120px 0 60px; text-align: center; }
-    .courses-hero h1 { color: #fff; font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 1rem; }
-    .courses-hero p { color: rgba(255,255,255,0.7); font-size: 1.1rem; max-width: 600px; margin: 0 auto 2rem; }
-    .course-section { padding: 80px 0; }
-    .course-section.alt { background: #f8f9fb; }
-    .course-header { text-align: center; margin-bottom: 3rem; }
-    .course-header .badge { display: inline-block; background: var(--orange); color: #fff; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 1rem; }
-    .course-header h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); color: var(--navy); margin-bottom: 0.5rem; }
-    .course-header p { color: #666; max-width: 600px; margin: 0 auto; }
-    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 960px; margin: 0 auto; }
-    .pricing-card { background: #fff; border: 2px solid #e8eaf0; border-radius: 16px; padding: 2rem; text-align: center; transition: all 0.2s; position: relative; display: flex; flex-direction: column; }
-    .pricing-card:hover { border-color: var(--orange); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
-    .pricing-card.featured { border-color: var(--navy); }
-    .pricing-card.featured::before { content: "MOST POPULAR"; position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--navy); color: #fff; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; padding: 3px 14px; border-radius: 20px; }
-    .pricing-tier { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--orange); margin-bottom: 0.5rem; }
-    .pricing-price { font-size: 2.5rem; font-weight: 900; color: var(--navy); line-height: 1; }
-    .pricing-price span { font-size: 1rem; font-weight: 400; color: #999; }
-    .pricing-desc { font-size: 0.9rem; color: #666; margin: 1rem 0; }
-    .pricing-features { list-style: none; margin: 1rem 0; text-align: left; flex: 1; }
-    .pricing-features li { font-size: 0.9rem; color: #444; padding: 4px 0; }
-    .pricing-features li::before { content: "✓ "; color: var(--orange); font-weight: 700; }
-    .pricing-card .btn { width: 100%; display: block; margin-top: auto; padding-top: 1.5rem; }
-    .personality-section { background: var(--navy); padding: 80px 0; text-align: center; }
-    .personality-section h2 { color: #fff; margin-bottom: 0.5rem; }
-    .personality-section p { color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto 3rem; }
-    .personality-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; max-width: 900px; margin: 0 auto; }
-    .personality-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 2rem 1.5rem; }
-    .personality-emoji { font-size: 2.5rem; margin-bottom: 0.5rem; }
-    .personality-card h4 { color: #fff; margin-bottom: 0.5rem; }
-    .personality-card p { color: rgba(255,255,255,0.6); font-size: 0.85rem; }
+    :root { --navy: #1a2744; --orange: #e8634a; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Hero ── */
+    .courses-hero { background: var(--navy); padding: 120px 24px 60px; text-align: center; }
+    .courses-hero h1 { color: #fff; font-size: clamp(2rem,5vw,3.2rem); font-weight: 900; margin-bottom: 1rem; }
+    .courses-hero p { color: rgba(255,255,255,0.7); font-size: 1.05rem; max-width: 580px; margin: 0 auto 2rem; }
+    .hero-stats { display: flex; justify-content: center; gap: 2rem; margin-top: 2rem; flex-wrap: wrap; }
+    .hero-stat { text-align: center; }
+    .hero-stat strong { display: block; font-size: 2rem; font-weight: 900; color: var(--orange); }
+    .hero-stat span { font-size: 0.8rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: .08em; }
+
+    /* ── Auth Bar ── */
+    .auth-bar { background: #f0f4ff; border-bottom: 1px solid #dde3f0; padding: 12px 24px; text-align: center; font-size: 0.9rem; color: #555; }
+    .auth-bar a, .auth-bar button { color: var(--navy); font-weight: 700; background: none; border: none; cursor: pointer; font-size: 0.9rem; text-decoration: underline; }
+    .auth-bar.enrolled { background: #f0fff4; border-color: #a7f3d0; color: #065f46; }
+
+    /* ── Login Modal ── */
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 1000; align-items: center; justify-content: center; padding: 24px; }
+    .modal-overlay.open { display: flex; }
+    .modal { background: #fff; border-radius: 20px; padding: 40px; width: 100%; max-width: 420px; box-shadow: 0 24px 64px rgba(0,0,0,0.2); }
+    .modal h2 { font-size: 1.5rem; color: var(--navy); margin-bottom: 6px; }
+    .modal p { color: #666; font-size: 0.9rem; margin-bottom: 24px; }
+    .modal input { width: 100%; border: 2px solid #e0e4ef; border-radius: 12px; padding: 14px 16px; font-size: 0.95rem; font-family: inherit; margin-bottom: 12px; }
+    .modal input:focus { outline: none; border-color: var(--orange); }
+    .modal .btn-modal { width: 100%; background: var(--orange); color: #fff; border: none; border-radius: 12px; padding: 14px; font-size: 1rem; font-weight: 700; cursor: pointer; font-family: inherit; }
+    .modal .btn-modal:hover { background: #d4542c; }
+    .modal .btn-cancel { width: 100%; background: none; border: none; color: #999; font-size: 0.9rem; cursor: pointer; margin-top: 10px; font-family: inherit; }
+    .modal-error { color: #dc2626; font-size: 0.85rem; margin-bottom: 10px; display: none; }
+
+    /* ── Filter Bar ── */
+    .filter-bar { background: #fff; border-bottom: 1px solid #e5e7eb; padding: 14px 24px; position: sticky; top: 0; z-index: 100; }
+    .filter-inner { max-width: 900px; margin: 0 auto; display: flex; gap: 8px; flex-wrap: wrap; }
+    .filter-btn { padding: 6px 16px; border-radius: 20px; border: none; font-size: 0.8rem; font-weight: 600; cursor: pointer; font-family: inherit; background: #f1f3f8; color: #555; transition: all .2s; }
+    .filter-btn.active { background: var(--navy); color: #fff; }
+
+    /* ── Course Cards ── */
+    .courses-wrap { max-width: 900px; margin: 0 auto; padding: 40px 24px; display: flex; flex-direction: column; gap: 16px; }
+    .course-card { background: #fff; border: 2px solid #e5e7eb; border-radius: 20px; overflow: hidden; transition: box-shadow .2s; }
+    .course-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
+    .course-card.enrolled-card { border-color: #34d399; }
+    .card-header { padding: 20px 24px; cursor: pointer; display: flex; align-items: flex-start; gap: 16px; }
+    .card-meta { flex: 1; min-width: 0; }
+    .card-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; }
+    .tag { font-size: 0.72rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+    .tag-enrolled { background: #d1fae5; color: #065f46; }
+    .tag-category-Operations { background: #ffedd5; color: #9a3412; }
+    .tag-category-Safety { background: #fee2e2; color: #991b1b; }
+    .tag-category-Leadership { background: #ede9fe; color: #5b21b6; }
+    .tag-badge { background: #fef3c7; color: #92400e; }
+    .card-title { font-size: 0.95rem; font-weight: 700; color: #111; line-height: 1.4; }
+    .card-info { font-size: 0.8rem; color: #888; margin-top: 6px; display: flex; gap: 12px; align-items: center; }
+    .card-price { font-size: 1rem; font-weight: 900; color: var(--navy); }
+    .card-action { flex-shrink: 0; display: flex; flex-direction: column; gap: 8px; align-items: flex-end; }
+    .btn-continue { background: var(--navy); color: #fff; border: none; padding: 10px 18px; border-radius: 12px; font-size: 0.85rem; font-weight: 700; cursor: pointer; font-family: inherit; white-space: nowrap; text-decoration: none; display: inline-block; }
+    .btn-continue:hover { background: #243460; }
+    .btn-enrol { background: var(--orange); color: #fff; border: none; padding: 10px 18px; border-radius: 12px; font-size: 0.85rem; font-weight: 700; cursor: pointer; font-family: inherit; white-space: nowrap; }
+    .btn-enrol:hover { background: #d4542c; }
+    .btn-preview { background: none; border: 2px solid #e0e4ef; color: #555; padding: 8px 16px; border-radius: 12px; font-size: 0.8rem; font-weight: 600; cursor: pointer; font-family: inherit; text-decoration: none; display: inline-block; }
+    .chevron { color: #aaa; font-size: 0.85rem; margin-top: 4px; }
+
+    /* ── Expanded Detail ── */
+    .card-detail { display: none; border-top: 1px solid #f0f0f0; padding: 20px 24px; background: #fafbfc; }
+    .card-detail.open { display: block; }
+    .card-detail p { font-size: 0.9rem; color: #555; line-height: 1.7; margin-bottom: 16px; }
+    .detail-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+    /* ── Success Banner ── */
+    .success-banner { background: #10b981; color: #fff; text-align: center; padding: 14px 24px; font-weight: 600; font-size: 0.95rem; display: none; }
+    .success-banner.show { display: block; }
+
+    /* ── Footer ── */
+    .course-footer { text-align: center; padding: 40px 24px; color: #aaa; font-size: 0.85rem; }
+    .course-footer a { color: #aaa; }
+
+    @media (max-width: 600px) {
+      .card-header { flex-direction: column; }
+      .card-action { flex-direction: row; align-items: center; width: 100%; }
+    }
   </style>
 </head>
 <body>
@@ -61,258 +110,326 @@
     </div>
   </header>
 
+  <!-- Hero -->
   <section class="courses-hero">
-    <div class="container">
-      <p class="section-eyebrow light">Industry Training</p>
-      <h1>Built for Civil Construction.<br/>Every Rank. Every Role.</h1>
-      <p>30 years of on-the-ground experience, built into scalable digital courses. From groundhand to owner — the training that actually changes what happens on site.</p>
-      <div style="display:inline-flex;align-items:center;gap:0.5rem;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:8px 16px;margin-top:1rem;font-size:0.85rem;color:rgba(255,255,255,0.85);">
-        <span>&#9654;</span> Delivered via <strong>EdApp</strong> — iOS, Android &amp; Web
-      </div>
+    <p style="color:var(--orange);font-size:.85rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px;">Civil Construction Training</p>
+    <h1>Built for Every Rank.<br/>Every Role. Every Site.</h1>
+    <p>30 years on-site experience built into scalable digital courses. Learn on iOS, Android, or web — anywhere, anytime.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><strong>8</strong><span>Courses</span></div>
+      <div class="hero-stat"><strong>104+</strong><span>Lessons</span></div>
+      <div class="hero-stat"><strong>5</strong><span>Countries</span></div>
+      <div class="hero-stat"><strong>30yrs</strong><span>Experience</span></div>
     </div>
   </section>
 
-  <!-- COMMUNICATING ON SITE -->
-  <section class="course-section">
-    <div class="container">
-      <div class="course-header">
-        <div class="badge">New Course</div>
-        <h2>📢 Communicating on Site</h2>
-        <p>Communication is not a soft skill — it is a safety-critical system. The foundation course for every person on site, regardless of rank.</p>
-      </div>
-      <div class="pricing-grid">
+  <!-- Success Banner -->
+  <div class="success-banner" id="successBanner">
+    🎉 Payment confirmed! Check your email for your EdApp access link.
+  </div>
 
-        <div class="pricing-card">
-          <div class="pricing-tier">Intro</div>
-          <div class="pricing-price">$47 <span>NZD</span></div>
-          <div class="pricing-desc">Level 1 Foundations — for every person on site from Day 1.</div>
-          <ul class="pricing-features">
-            <li>Why communication fails on site</li>
-            <li>The Big 4 site signals</li>
-            <li>Plain language techniques</li>
-            <li>Radio & phone protocol</li>
-            <li>Pre-start communication</li>
-          </ul>
-          <a href="https://buy.stripe.com/3cI7sNdcn1PLfagfeJ0sU07" class="btn btn-outline" target="_blank">Enrol Now →</a>
-        </div>
+  <!-- Auth Bar -->
+  <div class="auth-bar" id="authBar">
+    Already purchased a course? <button onclick="openLogin()">Sign in to see your courses →</button>
+  </div>
 
-        <div class="pricing-card featured">
-          <div class="pricing-tier">Certificate</div>
-          <div class="pricing-price">$197 <span>NZD</span></div>
-          <div class="pricing-desc">Levels 1 + 2 including the 4 Personality Types assessment.</div>
-          <ul class="pricing-features">
-            <li>Everything in Intro</li>
-            <li>The 4 Personality Types on site</li>
-            <li>Reading body language & mood</li>
-            <li>Communication under pressure</li>
-            <li>Cultural communication guide</li>
-            <li>Certificate of completion</li>
-          </ul>
-          <a href="https://buy.stripe.com/bJeeVfegrbqlgek8Ql0sU08" class="btn btn-primary" target="_blank">Enrol Now →</a>
-        </div>
-
-        <div class="pricing-card">
-          <div class="pricing-tier">Corporate</div>
-          <div class="pricing-price">$697 <span>NZD</span></div>
-          <div class="pricing-desc">All 4 levels + team licences + Toolbox Chat integration.</div>
-          <ul class="pricing-features">
-            <li>Everything in Certificate</li>
-            <li>Level 3: Advanced (Supervisors)</li>
-            <li>Level 4: Communication Systems</li>
-            <li>Team licences included</li>
-            <li>Toolbox Chat integration</li>
-            <li>Manager reporting dashboard</li>
-          </ul>
-          <a href="https://buy.stripe.com/6oU4gB1tFgKFe6c7Mh0sU09" class="btn btn-outline" target="_blank">Enrol Now →</a>
-        </div>
-
-      </div>
+  <!-- Login Modal -->
+  <div class="modal-overlay" id="loginModal">
+    <div class="modal">
+      <h2>Sign In</h2>
+      <p>Use the email address you purchased with</p>
+      <div class="modal-error" id="loginError">No account found. Please purchase a course first.</div>
+      <input type="email" id="loginEmail" placeholder="your@email.com" />
+      <button class="btn-modal" onclick="doLogin()">Sign In →</button>
+      <button class="btn-cancel" onclick="closeLogin()">Cancel</button>
     </div>
-  </section>
+  </div>
 
-  <!-- PERSONALITY TYPES -->
-  <section class="personality-section">
-    <div class="container">
-      <h2>Know Your Crew. Communicate Better.</h2>
-      <p>Every crew has 4 types of communicators. Once you know how to spot them, you'll know how to work with all of them.</p>
-      <div class="personality-grid">
-        <div class="personality-card">
-          <div class="personality-emoji">🔴</div>
-          <h4>The Driver</h4>
-          <p>Fast, decisive, results-focused. Direct and brief wins every time.</p>
-        </div>
-        <div class="personality-card">
-          <div class="personality-emoji">🟡</div>
-          <h4>The Talker</h4>
-          <p>Team morale engine. Needs warmth + structure to land safety messages.</p>
-        </div>
-        <div class="personality-card">
-          <div class="personality-emoji">🟢</div>
-          <h4>The Supporter</h4>
-          <p>Reliable backbone. Needs a safe space to speak up — or they won't.</p>
-        </div>
-        <div class="personality-card">
-          <div class="personality-emoji">🔵</div>
-          <h4>The Analyst</h4>
-          <p>Detail-driven. Needs data and time to process before committing.</p>
-        </div>
-      </div>
+  <!-- Filter Bar -->
+  <div class="filter-bar">
+    <div class="filter-inner" id="filterBar">
+      <button class="filter-btn active" onclick="setFilter('All', this)">All</button>
+      <button class="filter-btn" onclick="setFilter('Operations', this)">Operations</button>
+      <button class="filter-btn" onclick="setFilter('Safety', this)">Safety</button>
+      <button class="filter-btn" onclick="setFilter('Leadership', this)">Leadership</button>
     </div>
-  </section>
+  </div>
 
-  <!-- NZCI FLEXI -->
-  <section class="course-section alt">
-    <div class="container">
-      <div class="course-header">
-        <div class="badge">NZCI Certified</div>
-        <h2>🎓 NZCI Flexi</h2>
-        <p>New Zealand's benchmark civil construction qualification. Study at your own pace, certified to industry standards.</p>
-      </div>
-      <div class="pricing-grid">
+  <!-- Course Cards -->
+  <div class="courses-wrap" id="courseWrap"></div>
 
-        <div class="pricing-card">
-          <div class="pricing-tier">Intro</div>
-          <div class="pricing-price">$97 <span>NZD</span></div>
-          <div class="pricing-desc">Foundations of NZ civil construction compliance.</div>
-          <ul class="pricing-features">
-            <li>Core compliance framework</li>
-            <li>NZ-specific regulations</li>
-            <li>Site safety fundamentals</li>
-            <li>Self-paced online delivery</li>
-          </ul>
-          <a href="https://buy.stripe.com/14A7sN8W7dyt2nu7Mh0sU0a" class="btn btn-outline" target="_blank">Enrol Now →</a>
-        </div>
+  <div class="course-footer">
+    South Consultants Ltd · Civil Construction Training · New Zealand<br/>
+    <a href="mailto:sam@southconsultants.biz">sam@southconsultants.biz</a>
+  </div>
 
-        <div class="pricing-card featured">
-          <div class="pricing-tier">Certificate</div>
-          <div class="pricing-price">$497 <span>NZD</span></div>
-          <div class="pricing-desc">Full NZCI Flexi Certificate — industry recognised.</div>
-          <ul class="pricing-features">
-            <li>Everything in Intro</li>
-            <li>Full compliance modules</li>
-            <li>Practical assessments</li>
-            <li>NZCI Certificate of completion</li>
-            <li>LMS access included</li>
-          </ul>
-          <a href="https://buy.stripe.com/fZu5kFfkv1PL1jqaYt0sU0b" class="btn btn-primary" target="_blank">Enrol Now →</a>
-        </div>
+  <script>
+    // ── Course Data ──────────────────────────────────────────
+    const COURSES = [
+      {
+        id: "SLMP31245",
+        title: "SLMP31245: Plan Lift Move & Place Loads Using Mobile Plant",
+        description: "Industry-certified unit standard covering safe planning and execution of lifting, moving, and placing loads using mobile plant on civil construction sites. Fully NZQA aligned.",
+        category: "Operations",
+        flag: "🇳🇿",
+        lessons: 12,
+        price: 497,
+        badge: "⭐ Best Seller",
+        stripe_price_id: "price_1TIh4TPQrp72kwK3tSRXC1CD",
+        edapp_link: "https://web.edapp.com/courses/612ecaa444107aaedb6e31c2",
+      },
+      {
+        id: "nzci-flexi-intro",
+        title: "NZCI Flexi: Excavator Awareness — Intro",
+        description: "Foundational excavator safety and awareness for civil construction crews. Covers machine exclusion zones, communication, and ground hazards.",
+        category: "Safety",
+        flag: "🇳🇿",
+        lessons: 8,
+        price: 97,
+        badge: "Intro",
+        stripe_price_id: "price_1TFkMtPQrp72kwK3CKwbH3SR",
+        edapp_link: "https://web.edapp.com/courses/6243abf7b619b3dcbdefc92f",
+      },
+      {
+        id: "nzci-flexi-certificate",
+        title: "NZCI Flexi: Excavator Awareness — Certificate",
+        description: "Full certificate-level NZCI excavator awareness program. Includes assessments, completion certificate, and full NZQA unit standard alignment.",
+        category: "Safety",
+        flag: "🇳🇿",
+        lessons: 18,
+        price: 497,
+        badge: "Certificate",
+        stripe_price_id: "price_1TFkMtPQrp72kwK3YsOB3cqT",
+        edapp_link: "https://web.edapp.com/courses/6243abf7b619b3dcbdefc92f",
+      },
+      {
+        id: "nzci-flexi-corporate",
+        title: "NZCI Flexi: Excavator Awareness — Corporate",
+        description: "Corporate licence for teams of up to 25 staff. Includes admin dashboard, bulk enrolment, and progress reporting.",
+        category: "Safety",
+        flag: "🇳🇿",
+        lessons: 18,
+        price: 997,
+        badge: "Corporate",
+        stripe_price_id: "price_1TFkMuPQrp72kwK33fi90RsI",
+        edapp_link: "https://web.edapp.com/courses/6243abf7b619b3dcbdefc92f",
+      },
+      {
+        id: "communicating-on-site-intro",
+        title: "Communicating on Site — Intro",
+        description: "Learn the 4 personality types on site and how to communicate with each. Reduce conflict, improve teamwork, and get the job done smarter.",
+        category: "Leadership",
+        flag: "🌍",
+        lessons: 5,
+        price: 47,
+        badge: "Intro",
+        stripe_price_id: "price_1TFkMqPQrp72kwK36iele6tB",
+        edapp_link: "https://web.edapp.com/courses/612ecaa444107aaedb6e31c2",
+      },
+      {
+        id: "communicating-on-site-certificate",
+        title: "Communicating on Site — Certificate",
+        description: "Full 20-lesson certificate program covering all 4 personality types across 4 levels, with practical site scenarios and a certificate of completion.",
+        category: "Leadership",
+        flag: "🌍",
+        lessons: 20,
+        price: 197,
+        badge: "Certificate",
+        stripe_price_id: "price_1TFkMrPQrp72kwK30fmTgix6",
+        edapp_link: "https://web.edapp.com/courses/612ecaa444107aaedb6e31c2",
+      },
+      {
+        id: "communicating-on-site-corporate",
+        title: "Communicating on Site — Corporate",
+        description: "Corporate licence for your whole crew. Includes team personality profiling, manager briefing notes, and bulk enrolment for unlimited staff.",
+        category: "Leadership",
+        flag: "🌍",
+        lessons: 20,
+        price: 697,
+        badge: "Corporate",
+        stripe_price_id: "price_1TFkMsPQrp72kwK3Ty9WceCc",
+        edapp_link: "https://web.edapp.com/courses/612ecaa444107aaedb6e31c2",
+      },
+      {
+        id: "compaction-101",
+        title: "Compaction 101",
+        description: "Everything your crew needs to know about soil compaction — theory, equipment, testing, and common failures on civil construction sites.",
+        category: "Operations",
+        flag: "🌍",
+        lessons: 14,
+        price: 499,
+        badge: null,
+        stripe_price_id: "price_1TFkMvPQrp72kwK3PHsQk6Lf",
+        edapp_link: "https://web.edapp.com/courses/612ecaa444107aaedb6e31c2",
+      },
+    ];
 
-        <div class="pricing-card">
-          <div class="pricing-tier">Corporate</div>
-          <div class="pricing-price">$997 <span>NZD</span></div>
-          <div class="pricing-desc">Team licences for your whole crew.</div>
-          <ul class="pricing-features">
-            <li>Everything in Certificate</li>
-            <li>Unlimited team licences</li>
-            <li>Manager reporting</li>
-            <li>Bulk enrolment support</li>
-          </ul>
-          <a href="https://buy.stripe.com/5kQfZjegrdytbY43w10sU0c" class="btn btn-outline" target="_blank">Enrol Now →</a>
-        </div>
+    // ── State ────────────────────────────────────────────────
+    let student = null;
+    let currentFilter = "All";
 
-      </div>
-    </div>
-  </section>
+    // ── Check URL for ?enrolled=true ─────────────────────────
+    window.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("enrolled") === "true") {
+        document.getElementById("successBanner").classList.add("show");
+        window.history.replaceState({}, "", "/courses.html");
+      }
+      render();
+    });
 
-  <!-- COMPACTION 101 -->
-  <section class="course-section">
-    <div class="container">
-      <div class="course-header">
-        <div class="badge">Technical Skills</div>
-        <h2>🚜 Compaction 101</h2>
-        <p>Master the fundamentals of compaction. Techniques, equipment, soil science, and quality control — built for operators and supervisors worldwide.</p>
-      </div>
-      <div class="pricing-grid" style="max-width:380px">
-        <div class="pricing-card featured">
-          <div class="pricing-tier">Full Course</div>
-          <div class="pricing-price">$499 <span>NZD</span></div>
-          <div class="pricing-desc">Complete compaction training for civil construction professionals.</div>
-          <ul class="pricing-features">
-            <li>Soil types and compaction theory</li>
-            <li>Equipment selection & operation</li>
-            <li>Quality control testing</li>
-            <li>Common failures & fixes</li>
-            <li>NZ & global standards</li>
-            <li>Certificate of completion</li>
-          </ul>
-          <a href="https://buy.stripe.com/14A4gB6NZfGB9PW0jP0sU0d" class="btn btn-primary" target="_blank">Enrol Now →</a>
-        </div>
-      </div>
-    </div>
-  </section>
+    // ── Auth ─────────────────────────────────────────────────
+    function openLogin() {
+      document.getElementById("loginModal").classList.add("open");
+      document.getElementById("loginEmail").focus();
+    }
 
-  <!-- SLMP31245 -->
-  <section class="course-section alt">
-    <div class="container">
-      <div class="course-header">
-        <div class="badge">Unit Standard 31245</div>
-        <h2>Plan Lift Move &amp; Place Loads Using Mobile Plant</h2>
-        <p>The definitive NZ training for slinging, lifting, and placing heavy loads with excavators and loaders. Built from 30 years of civil construction experience and real incident case studies. Meets NZ Unit Standard 31245.</p>
-      </div>
-      <div class="pricing-grid" style="max-width:640px">
+    function closeLogin() {
+      document.getElementById("loginModal").classList.remove("open");
+      document.getElementById("loginError").style.display = "none";
+    }
 
-        <div class="pricing-card featured">
-          <div class="pricing-tier">Full Course</div>
-          <div class="pricing-price">$497 <span>NZD</span></div>
-          <div class="pricing-desc">5 modules, 14 lessons — complete SLMP training with booklet, presentation, and assessment.</div>
-          <ul class="pricing-features">
-            <li>Health &amp; Safety Act &amp; Duty of Care</li>
-            <li>Hazard identification &amp; risk assessment</li>
-            <li>Lifting gear: slings, chains, shackles, WLL ratings</li>
-            <li>Pre-use inspection &amp; 12-month certification</li>
-            <li>Standard Lift Plan documentation</li>
-            <li>Test lift procedure &amp; danger zone management</li>
-            <li>Walking the load &amp; spotter communication</li>
-            <li>Real case studies &amp; incident prevention</li>
-            <li>Anti-drop valve &amp; burst protection requirements</li>
-            <li>Certificate of completion</li>
-          </ul>
-          <a href="https://buy.stripe.com/9B6dRb0pBcup3ryfeJ0sU0e" class="btn btn-primary" target="_blank">Enrol Now — $497 NZD &rarr;</a>
-          <a href="https://web.edapp.com/courses/612ecaa444107aaedb6e31c2" class="btn btn-outline" target="_blank" style="margin-top:0.75rem;">▶ Start Learning in EdApp &rarr;</a>
-        </div>
+    async function doLogin() {
+      const email = document.getElementById("loginEmail").value.trim().toLowerCase();
+      if (!email) return;
 
-        <div class="pricing-card">
-          <div class="pricing-tier">Corporate</div>
-          <div class="pricing-price">$1,200 <span>NZD</span></div>
-          <div class="pricing-desc">Team licence — up to 5 crew members. Includes on-site delivery option.</div>
-          <ul class="pricing-features">
-            <li>Everything in Full Course</li>
-            <li>Up to 5 team licences</li>
-            <li>On-site delivery available</li>
-            <li>Toolbox Talk integration</li>
-            <li>Manager reporting dashboard</li>
-            <li>Bulk enrolment support</li>
-          </ul>
-          <a href="mailto:sam@southconsultants.biz?subject=SLMP31245%20Corporate%20Enquiry" class="btn btn-outline">Get a Quote &rarr;</a>
-        </div>
+      try {
+        // Check student entity via Penelope API
+        const resp = await fetch("https://penelope-1bf847fc.base44.app/functions/studentLogin", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email }),
+        });
+        const data = await resp.json();
+        if (data.student) {
+          student = data.student;
+          closeLogin();
+          updateAuthBar();
+          render();
+        } else {
+          document.getElementById("loginError").style.display = "block";
+        }
+      } catch {
+        document.getElementById("loginError").style.display = "block";
+      }
+    }
 
-      </div>
-    </div>
-  </section>
+    function signOut() {
+      student = null;
+      updateAuthBar();
+      render();
+    }
 
-  <!-- CTA -->
-  <section class="cta-band">
-    <div class="container center">
-      <h2>Not sure which course is right for you?</h2>
-      <p>Talk to us. We'll point you in the right direction.</p>
-      <a href="mailto:sam@southconsultants.biz" class="btn btn-primary">Get in Touch</a>
-    </div>
-  </section>
+    function updateAuthBar() {
+      const bar = document.getElementById("authBar");
+      if (student) {
+        const count = (student.courses_purchased || []).length;
+        bar.classList.add("enrolled");
+        bar.innerHTML = `Welcome back, <strong>${student.full_name || student.email}</strong> — ${count} course${count !== 1 ? "s" : ""} enrolled &nbsp;|&nbsp; <button onclick="signOut()">Sign Out</button>`;
+      } else {
+        bar.classList.remove("enrolled");
+        bar.innerHTML = `Already purchased a course? <button onclick="openLogin()">Sign in to see your courses →</button>`;
+      }
+    }
 
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <p class="footer-logo">South Consultants</p>
-        <p class="footer-tagline">Smarter Operations. Safer Sites.</p>
-      </div>
-      <div class="footer-links">
-        <a href="/">Home</a>
-        <a href="/courses.html">Courses</a>
-        <a href="mailto:sam@southconsultants.biz">Contact</a>
-      </div>
-      <p class="footer-copy">© 2026 South Consultants Ltd. All rights reserved.</p>
-    </div>
-  </footer>
+    // ── Filter ────────────────────────────────────────────────
+    function setFilter(cat, btn) {
+      currentFilter = cat;
+      document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      render();
+    }
+
+    // ── Checkout ──────────────────────────────────────────────
+    async function enrol(priceId) {
+      try {
+        const resp = await fetch("https://penelope-1bf847fc.base44.app/functions/stripeCheckout", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            price_id: priceId,
+            customer_email: student?.email || "",
+            success_url: window.location.origin + "/courses.html?enrolled=true",
+            cancel_url: window.location.origin + "/courses.html",
+          }),
+        });
+        const data = await resp.json();
+        if (data.url) window.open(data.url, "_blank");
+      } catch {
+        alert("Could not open checkout. Please email sam@southconsultants.biz");
+      }
+    }
+
+    // ── Toggle expand ─────────────────────────────────────────
+    function toggleCard(id) {
+      const el = document.getElementById("detail-" + id);
+      el.classList.toggle("open");
+      document.getElementById("chevron-" + id).textContent = el.classList.contains("open") ? "▲" : "▼";
+    }
+
+    // ── Render ────────────────────────────────────────────────
+    function render() {
+      const enrolledIds = student?.courses_purchased || [];
+      let list = currentFilter === "All" ? COURSES : COURSES.filter(c => c.category === currentFilter);
+
+      // Enrolled courses float to top
+      list = [...list].sort((a, b) => {
+        return (enrolledIds.includes(b.id) ? 1 : 0) - (enrolledIds.includes(a.id) ? 1 : 0);
+      });
+
+      const wrap = document.getElementById("courseWrap");
+      wrap.innerHTML = list.map(c => {
+        const enrolled = enrolledIds.includes(c.id);
+        return `
+        <div class="course-card ${enrolled ? "enrolled-card" : ""}" id="card-${c.id}">
+          <div class="card-header" onclick="toggleCard('${c.id}')">
+            <div class="card-meta">
+              <div class="card-tags">
+                <span>${c.flag}</span>
+                ${enrolled ? `<span class="tag tag-enrolled">✓ Enrolled</span>` : ""}
+                ${c.badge ? `<span class="tag tag-badge">${c.badge}</span>` : ""}
+                <span class="tag tag-category-${c.category}">${c.category}</span>
+              </div>
+              <div class="card-title">${c.title}</div>
+              <div class="card-info">
+                <span>${c.lessons} lessons</span>
+                <span class="card-price">$${c.price} NZD</span>
+              </div>
+            </div>
+            <div class="card-action">
+              ${enrolled
+                ? `<a href="${c.edapp_link}" target="_blank" class="btn-continue">▶ Continue</a>`
+                : `<button class="btn-enrol" onclick="event.stopPropagation();enrol('${c.stripe_price_id}')">Enrol Now</button>`
+              }
+              <span class="chevron" id="chevron-${c.id}">▼</span>
+            </div>
+          </div>
+          <div class="card-detail" id="detail-${c.id}">
+            <p>${c.description}</p>
+            <div class="detail-actions">
+              ${enrolled
+                ? `<a href="${c.edapp_link}" target="_blank" class="btn-continue">▶ Open in EdApp</a>`
+                : `<button class="btn-enrol" onclick="enrol('${c.stripe_price_id}')">Enrol — $${c.price} NZD</button>
+                   <a href="${c.edapp_link}" target="_blank" class="btn-preview">Preview on EdApp</a>`
+              }
+            </div>
+          </div>
+        </div>`;
+      }).join("");
+    }
+
+    // Close modal on overlay click
+    document.getElementById("loginModal").addEventListener("click", function(e) {
+      if (e.target === this) closeLogin();
+    });
+
+    // Enter key on email field
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "Enter" && document.getElementById("loginModal").classList.contains("open")) {
+        doLogin();
+      }
+    });
+  </script>
 
 </body>
 </html>
