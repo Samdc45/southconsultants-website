@@ -11,6 +11,9 @@
       ]
     }
   ],
+  "rewrites": [
+    { "source": "/googlefe06a6cb358cb541.html", "destination": "/googlefe06a6cb358cb541.html" }
+  ],
   "redirects": [
     { "source": "/about", "destination": "/#about", "permanent": false },
     { "source": "/products", "destination": "/#products", "permanent": false },
