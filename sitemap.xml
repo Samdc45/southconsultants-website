@@ -179,4 +179,80 @@
     <priority>0.7</priority>
   </url>
 
+
+
+  <!-- Southeast Asia regional pages: Singapore, Malaysia, Philippines -->
+  <url>
+    <loc>https://southconsultants.biz/courses/communicating-on-site/singapore/</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://southconsultants.biz/courses/compaction-101-aggregates-pavement/singapore/</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://southconsultants.biz/courses/nzci-flexi-civil-industry-induction/singapore/</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://southconsultants.biz/courses/sling-lift-move-place-us31245/singapore/</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://southconsultants.biz/courses/communicating-on-site/malaysia/</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://southconsultants.biz/courses/compaction-101-aggregates-pavement/malaysia/</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://southconsultants.biz/courses/nzci-flexi-civil-industry-induction/malaysia/</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://southconsultants.biz/courses/sling-lift-move-place-us31245/malaysia/</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://southconsultants.biz/courses/communicating-on-site/philippines/</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://southconsultants.biz/courses/compaction-101-aggregates-pavement/philippines/</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://southconsultants.biz/courses/nzci-flexi-civil-industry-induction/philippines/</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://southconsultants.biz/courses/sling-lift-move-place-us31245/philippines/</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>
