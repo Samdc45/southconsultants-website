@@ -15,6 +15,7 @@
     { "source": "/googlefe06a6cb358cb541.html", "destination": "/googlefe06a6cb358cb541.html" }
   ],
   "redirects": [
+    { "source": "/sitemate", "destination": "/mate", "permanent": true },
     { "source": "/about", "destination": "/#about", "permanent": false },
     { "source": "/products", "destination": "/#products", "permanent": false },
     { "source": "/training", "destination": "/#training", "permanent": false }
