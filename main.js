@@ -25,28 +25,33 @@ nav.querySelectorAll('a').forEach(link => {
 // Contact form submission
 const form = document.getElementById('contactForm');
 if (form) {
-  form.addEventListener('submit', async (e) => {
+  form.addEventListener('submit', (e) => {
     e.preventDefault();
     const btn = form.querySelector('button[type="submit"]');
-    btn.textContent = 'Sending...';
-    btn.disabled = true;
 
-    // Collect form data
-    const data = {
-      firstName: form.querySelector('input[placeholder="Sam"]')?.value,
-      lastName: form.querySelector('input[placeholder="Smith"]')?.value,
-      company: form.querySelector('input[placeholder="Your Company"]')?.value,
-      email: form.querySelector('input[type="email"]')?.value,
-      interest: form.querySelector('select')?.value,
-      message: form.querySelector('textarea')?.value,
-    };
+    const firstName = form.querySelector('input[placeholder="John"]')?.value?.trim() || '';
+    const lastName  = form.querySelector('input[placeholder="Smith"]')?.value?.trim() || '';
+    const company   = form.querySelector('input[placeholder="Your Company"]')?.value?.trim() || '';
+    const email     = form.querySelector('input[type="email"]')?.value?.trim() || '';
+    const interest  = form.querySelector('select')?.value || '';
+    const message   = form.querySelector('textarea')?.value?.trim() || '';
 
-    // Simple email via mailto fallback
+    const subject = encodeURIComponent(
+      `Website enquiry${interest ? ' — ' + interest : ''}${company ? ' (' + company + ')' : ''}`
+    );
+    const body = encodeURIComponent(
+      `Name: ${firstName} ${lastName}\nEmail: ${email}\nCompany: ${company}\nInterest: ${interest}\n\n${message}`
+    );
+
+    window.location.href = `mailto:sam@southconsultants.biz?subject=${subject}&body=${body}`;
+
+    btn.textContent = "Opening your email app…";
+    btn.style.background = '#2ecc71';
     setTimeout(() => {
-      btn.textContent = "Message Sent! We'll be in touch soon.";
-      btn.style.background = '#2ecc71';
+      btn.textContent = 'Send Message';
+      btn.style.background = '';
       form.reset();
-    }, 1000);
+    }, 3000);
   });
 }
 
