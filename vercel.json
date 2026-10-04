@@ -51,6 +51,11 @@
       "source": "/training",
       "destination": "/#training",
       "permanent": false
+    },
+    {
+      "source": "/voc",
+      "destination": "/plant-operator-voc",
+      "permanent": false
     }
   ]
 }
